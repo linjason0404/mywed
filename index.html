@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="使用 AI 建立的第一個響應式網站">
+  <title>我的第一個 AI 網站</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      background: #f4f7fb;
+      color: #243447;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1668a7, #374ca6);
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0 0 12px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    nav {
+      background: white;
+      text-align: center;
+      padding: 15px 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #236b96;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #e67e22;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      padding: 28px;
+      margin-bottom: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      scroll-margin-top: 75px;
+    }
+
+    h2 {
+      color: #236b96;
+      margin-top: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #eef5ff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #236b96;
+    }
+
+    .button {
+      display: inline-block;
+      background: #236b96;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background: #17496a;
+    }
+
+    #message {
+      color: #236b96;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: #243447;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 45px 15px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 4px 8px;
+        font-size: 14px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>我的第一個 AI 網站</h1>
+    <p>運用人工智慧，開始我的網頁設計之旅！</p>
+  </header>
+
+  <nav>
+    <a href="#about">關於網站</a>
+    <a href="#learn">學習內容</a>
+    <a href="#contact">聯絡資訊</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>關於這個網站</h2>
+      <p>
+        這是我使用 AI 協助製作的第一個網站。
+        透過 HTML 建立網頁結構，使用 CSS 設計版面，
+        並加入 RWD 響應式設計，讓網站在不同裝置上
+        都能正常顯示。
+      </p>
+      <p>
+        我希望透過這次練習，學習網站設計、
+        GitHub 檔案管理以及網站公開發布的方法。
+      </p>
+    </section>
+
+    <section id="learn">
+      <h2>我的學習內容</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>HTML</h3>
+          <p>學習網頁的基本結構與內容。</p>
+        </div>
+
+        <div class="card">
+          <h3>CSS</h3>
+          <p>設計網站的顏色、字體與版面。</p>
+        </div>
+
+        <div class="card">
+          <h3>RWD</h3>
+          <p>讓網站適應電腦、平板與手機。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>互動小功能</h2>
+      <p>按下按鈕，看看我的網站有什麼反應！</p>
+
+      <button class="button" id="helloButton" type="button">
+        點我打招呼
+      </button>
+
+      <p id="message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>我的第一個 AI 網站</p>
+    <p>使用 HTML、CSS 與 JavaScript 製作</p>
+    <p>© 2026 My First Website</p>
+  </footer>
+
+  <script>
+    const helloButton = document.getElementById("helloButton");
+    const message = document.getElementById("message");
+
+    helloButton.addEventListener("click", function () {
+      message.textContent = "你好！歡迎來到我的第一個 AI 網站！";
+    });
+  </script>
+</body>
+</html>
